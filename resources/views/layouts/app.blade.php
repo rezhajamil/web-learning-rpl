@@ -8,10 +8,21 @@
     <title>Web Pembelajaran Learning Pemrograman Dasar XI RPL 1</title>
 </head>
 <body>
+    <style>
+        trix-toolbar [data-trix-button-group="file-tools"] {
+            display: none;
+        }
+    </style>
     @yield('content')
     
     @include('layouts.footer')
     @include('layouts.scripts')
     @yield('scripts')
+
+    <script>
+        document.addEventListener('trix-file-accept', function(event) {
+            event.preventDefault();
+        });
+    </script>
 </body>
 </html>

@@ -16,6 +16,10 @@ class CreateSubjectsTable extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->unsignedBigInteger('lesson_id')->nullable();
+            $table->unsignedBigInteger('example_id')->nullable();
+            $table->unsignedBigInteger('quiz_id')->nullable();
+            $table->unsignedBigInteger('other_id')->nullable();
             $table->timestamps();
         });
     }

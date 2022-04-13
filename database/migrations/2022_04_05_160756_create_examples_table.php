@@ -15,8 +15,10 @@ class CreateExamplesTable extends Migration
     {
         Schema::create('examples', function (Blueprint $table) {
             $table->id();
-            $table->string('desc')->nullable();
+            $table->text('desc')->nullable();
             $table->string('file')->nullable();
+            $table->string('file_name')->nullable();
+            $table->string('file_extension')->nullable();
             $table->timestamps();
         });
     }

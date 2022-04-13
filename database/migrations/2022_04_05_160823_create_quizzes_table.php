@@ -15,9 +15,11 @@ class CreateQuizzesTable extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
-            $table->string('desc')->nullable();
+            $table->text('desc')->nullable();
             $table->string('file')->nullable();
             $table->dateTime('deadline')->nullable();
+            $table->string('file_name')->nullable();
+            $table->string('file_extension')->nullable();
             $table->timestamps();
         });
     }

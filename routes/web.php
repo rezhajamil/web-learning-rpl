@@ -1,6 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\SubjectController as AdminSubjectController;
+use App\Http\Controllers\Admin\LessonController as AdminLessonController;
+use App\Http\Controllers\Admin\ExampleController as AdminExampleController;
+use App\Http\Controllers\Admin\QuizController as AdminQuizController;
+use App\Http\Controllers\Admin\OtherController as AdminOtherController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
+use App\Http\Controllers\User\SubjectController as UserSubjectController;
+use App\Http\Controllers\User\QuizAnswerController as UserQuizAnswerController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,8 +34,29 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('dashboard', UserDashboardController::class)->name('dashboard');
-    Route::prefix('user')->name('user.')->group(function () {
+
+    Route::get('/', function () {
+        if (auth()->user()->is_admin) {
+            return view('admin.dashboard');
+        } else {
+            return view('user.dashboard');
+        }
+    });
+
+    Route::prefix('/')->name('user.')->middleware('ensureUserRole:user')->group(function () {
+        Route::get('dashboard', UserDashboardController::class)->name('dashboard');
+        Route::resource('subject', UserSubjectController::class);
+        Route::resource('quiz_answer', UserQuizAnswerController::class);
+    });
+
+    Route::prefix('admin')->name('admin.')->middleware('ensureUserRole:admin')->group(function () {
+        Route::resource('dashboard', AdminDashboardController::class);
+        Route::resource('subject', AdminSubjectController::class);
+        Route::resource('lesson', AdminLessonController::class);
+        Route::resource('example', AdminExampleController::class);
+        Route::resource('quiz', AdminQuizController::class);
+        Route::resource('other', AdminOtherController::class);
+        Route::get('quiz/answer/{quiz_id}', [AdminQuizController::class, 'showAnswer'])->name('quiz.answer');
     });
 });
 

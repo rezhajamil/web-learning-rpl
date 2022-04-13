@@ -38,7 +38,7 @@ class UserController extends Controller
 
         if ($find_user) {
             Auth::login($find_user, true);
-            return redirect(route('dashboard'));
+            return redirect(route('user.dashboard'));
         } else {
             return redirect(route('user.create', $data));
         }
@@ -75,7 +75,7 @@ class UserController extends Controller
                 'form_avatar' => 'image|max:10240'
             ]);
 
-            $avatar = $request->form_avatar->store('avatars', 'public');
+            $avatar = $request->form_avatar->store('avatars');
         } else {
             $avatar = $request->google_avatar;
         }
@@ -91,7 +91,7 @@ class UserController extends Controller
 
         $user = User::create($data);
         Auth::login($user, true);
-        return redirect(route('dashboard'));
+        return redirect(route('user.dashboard'));
     }
 
     /**

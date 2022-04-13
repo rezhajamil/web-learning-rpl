@@ -3,6 +3,7 @@
     rel="stylesheet"
 />
 <link rel="stylesheet" href="/css/app.css" />
+<link rel="stylesheet" href="/css/trix.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 <script
@@ -11,3 +12,4 @@
 ></script>
 <script src="/js/app.js"></script>
 <script src="/js/init-alpine.js"></script>
+<script src="/js/trix.js"></script>

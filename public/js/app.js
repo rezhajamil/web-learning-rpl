@@ -1,16 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/alpinejs/dist/module.esm.js":
-/*!**************************************************!*\
-  !*** ./node_modules/alpinejs/dist/module.esm.js ***!
-  \**************************************************/
-/***/ (() => {
-
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'C:\\Users\\acer\\OneDrive\\Dokumen\\Web Project\\Laravel 8\\freelance\\web-learning-rpl\\web-learning-rpl\\node_modules\\alpinejs\\dist\\module.esm.js'");
-
-/***/ }),
-
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -2068,16 +2058,9 @@ module.exports = {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
-
-window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
-alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 
 /***/ }),
 
