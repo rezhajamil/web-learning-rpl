@@ -37,11 +37,14 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/', function () {
         if (auth()->user()->is_admin) {
-            return view('admin.dashboard');
+            return redirect()->route('admin.dashboard');
         } else {
-            return view('user.dashboard');
+            return redirect()->route('user.dashboard');
         }
     });
+
+    Route::get('/edit_profile', [UserController::class, 'edit_profile']);
+    Route::post('/edit_profile/{user}', [UserController::class, 'save_profile'])->name('save_profile');
 
     Route::prefix('/')->name('user.')->middleware('ensureUserRole:user')->group(function () {
         Route::get('dashboard', UserDashboardController::class)->name('dashboard');
@@ -57,6 +60,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('quiz', AdminQuizController::class);
         Route::resource('other', AdminOtherController::class);
         Route::get('quiz/answer/{quiz_id}', [AdminQuizController::class, 'showAnswer'])->name('quiz.answer');
+        Route::post('point/{quiz_answer}', [AdminQuizController::class, 'set_point'])->name('point');
     });
 });
 

@@ -16,6 +16,7 @@ class QuizAnswer extends Model
         'file',
         'file_name',
         'file_extension',
+        'point',
         'created_at',
         'updated_at',
     ];

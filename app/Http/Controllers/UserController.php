@@ -113,7 +113,6 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
     }
 
     /**
@@ -137,5 +136,31 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function edit_profile()
+    {
+        return view('auth.edit-profile');
+    }
+
+    public function save_profile(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|numeric|digits_between:10,13',
+            'gender' => 'required',
+        ]);
+        $user = User::find($id);
+
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->gender = $request->gender;
+        $user->save();
+
+        if ($user->is_admin) {
+            return redirect()->route('admin.dashboard');
+        } else {
+            return redirect()->route('user.dashboard');
+        }
     }
 }

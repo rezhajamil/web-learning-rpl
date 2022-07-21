@@ -3,7 +3,7 @@
 <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
     @include('components.user.sidebar')
     @include('components.user.sidebar_mobile')
-    
+
     <div class="flex flex-col flex-1 w-full">
         <x-navbar></x-navbar>
         <main class="h-full overflow-y-auto">
@@ -21,9 +21,9 @@
                     </label>
                     <input type="text" class="w-1/2 form-input" name="name" id="name" placeholder="Nama Materi" required value="{{ old('name') }}">
                     @error('name')
-                        <span class="text-xs text-red-600 dark:text-red-400">
-                            {{ $message }}
-                        </span>
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
                     @enderror
                     <button type="submit" class="block px-3 py-2 my-3 font-semibold text-white transition bg-indigo-600 rounded hover:bg-indigo-800">Kirim</button>
                 </form>
@@ -31,17 +31,18 @@
         </main>
     </div>
 </div>
-    
+
 @endsection
 
 @section('scripts')
-    <script>
-        function previewFile() {
-            const input = document.querySelector('input[name=file]');
-            const preview = document.querySelector('.file-preview');
-            const file = input.files[0];
+<script>
+    function previewFile() {
+        const input = document.querySelector('input[name=file]');
+        const preview = document.querySelector('.file-preview');
+        const file = input.files[0];
 
-            preview.innerHTML = `File Chosen: ${file.name}`;
-        }
-    </script>
+        preview.innerHTML = `File Chosen: ${file.name}`;
+    }
+
+</script>
 @endsection

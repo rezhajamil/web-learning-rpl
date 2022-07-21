@@ -173,4 +173,17 @@ class QuizController extends Controller
 
         return redirect()->route('admin.subject.show', $quiz->subject->id);
     }
+
+    public function set_point(Request $request, $id)
+    {
+        $request->validate([
+            'point' => 'numeric'
+        ]);
+        $answer = QuizAnswer::find($id);
+
+        $answer->point = $request->point;
+        $answer->save();
+
+        return back();
+    }
 }
