@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-<div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+<div class="flex h-screen bg-gray-50 dark:bg-gray-900">
     @include('components.user.sidebar')
     @include('components.user.sidebar_mobile')
 
-    <div class="flex flex-col flex-1 w-full">
+    <div class="flex flex-col flex-1 w-full" x-data="{help:false}">
         <x-navbar></x-navbar>
         <main class="h-full overflow-y-auto">
             <div class="container grid px-6 mx-auto">
@@ -160,6 +160,55 @@
                 </div>
             </div>
         </main>
+
+        <button class="fixed px-3 py-1 transition-all bg-white rounded-full shadow-lg hover:animate-bounce right-4 bottom-4" id="btn-help">
+            <i class="text-3xl text-purple-600 bi bi-question-circle"></i>
+        </button>
+
+        <div class="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-black/70" id="help" style="display: none">
+            <div class="w-1/2 px-4 py-2 bg-white rounded-lg">
+                <i class="inline-block w-full my-1 text-2xl text-right text-purple-600 cursor-pointer bi bi-x-lg" id="close"></i>
+                <i class="inline-block w-full my-3 text-5xl text-center text-purple-600 bi bi-question-circle"></i>
+                <div class="flex flex-col my-4">
+                    <span class="text-lg font-bold text-purple-600 underline">Deskripsi </span>
+                    <span class="text-slate-800">Web learning rpl adalah web pembelajaran yang digunakan dalam sistem pembelajaran di SMK Sinar Husni Medan Kelas XI RPL. Tujuannya adalah sebagai media dalam meningkatkan efisiensi pembelajaran di sekolah yang diharapkan dapat meningkatkan efisiensi dalam pembelajaran</span>
+                </div>
+                <div class="flex flex-col my-4">
+                    <span class="text-lg font-bold text-purple-600 underline">Panduan penggunaan</span>
+                    <span class="text-slate-800">Untuk kelas XI RPL 1 agar dapat mengakses web learning diharapkan untuk login terlebih dahulu menggunakan email atau dengan cara mengisi data diri.
+                        Materi, contoh, tugas, dan link video pembelajaran yang di upload harap dipelajari untuk menambah pengetahuan selain dari pembelajaran tatap muka di kelas
+                        Untuk tugas harap dikerjakan sebelum dateline
+                        Terimakasih</span>
+                </div>
+                <div class="flex flex-col my-4">
+                    <span class="text-lg font-bold text-purple-600 underline">Bantuan</span>
+                    <span class="text-slate-800">Jika terdapat masalah atau ada pertanyaan lebih lanjut hubungi
+                        <br />0822-2557-7858
+                        <br />+62 853-6081-7899
+                        <br />Atau
+                        Instagram: kartinijuitaa</span>
+
+                </div>
+            </div>
+        </div>
+
     </div>
+
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        $("#btn-help").click(() => {
+            $("#help").show();
+        })
+
+        $("#close").click(() => {
+            $("#help").hide();
+        })
+
+    })
+
+</script>
 @endsection

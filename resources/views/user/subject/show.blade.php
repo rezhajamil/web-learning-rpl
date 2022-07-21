@@ -51,7 +51,7 @@
                             <span class="text-sm font-semibold transition-all text-slate-600 group-hover:text-white">Open<i class="ml-1 font-semibold bi bi-arrow-bar-right"></i></span>
                         </a>
                         <div class="flex flex-col w-1/2 px-3 gap-y-2 md:w-1/6">
-                            <span class="block mt-auto text-sm font-bold text-white md:text-base"><i class="mr-2 bi bi-bell-fill"></i>01/01/2022 19:00</span>
+                            <span class="block mt-auto text-sm font-bold text-white md:text-base"><i class="mr-2 bi bi-bell-fill"></i>{{ date('d/m/Y H:i',strtotime($subject->quiz->deadline)) }}</span>
                             @if (!$answer)
                             <a href="{{ route('user.quiz_answer.create',['quiz_id'=>$subject->quiz_id]) }}" class="p-2 font-semibold text-center text-purple-800 transition bg-white rounded-lg hover:bg-slate-600 hover:text-white">Kumpul Tugas</a>
                             @endif
