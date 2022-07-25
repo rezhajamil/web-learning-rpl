@@ -17,8 +17,8 @@
     @yield('content')
 
     @include('layouts.footer')
-    @include('layouts.scripts')
     @yield('scripts')
+    @include('layouts.scripts')
 
     <script>
         document.addEventListener('trix-file-accept', function(event) {

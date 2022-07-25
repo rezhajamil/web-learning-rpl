@@ -4,7 +4,7 @@
     @include('components.user.sidebar')
     @include('components.user.sidebar_mobile')
 
-    <div class="flex flex-col flex-1 w-full" x-data="{help:false}">
+    <div class="flex flex-col flex-1 w-full">
         <x-navbar></x-navbar>
         <main class="h-full overflow-y-auto">
             <div class="container grid px-6 mx-auto">
