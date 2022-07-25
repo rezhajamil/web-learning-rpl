@@ -6,7 +6,7 @@ use App\Models\Quiz;
 use App\Models\QuizAnswer;
 use Illuminate\View\Component;
 
-class navbar extends Component
+class Navbar extends Component
 {
     /**
      * Create a new component instance.
