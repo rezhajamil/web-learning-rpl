@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\LessonController as AdminLessonController;
 use App\Http\Controllers\Admin\ExampleController as AdminExampleController;
 use App\Http\Controllers\Admin\QuizController as AdminQuizController;
 use App\Http\Controllers\Admin\OtherController as AdminOtherController;
+use App\Http\Controllers\Admin\StudentController;
+use App\Http\Controllers\HelpController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\User\SubjectController as UserSubjectController;
 use App\Http\Controllers\User\QuizAnswerController as UserQuizAnswerController;
@@ -43,6 +45,8 @@ Route::middleware('auth')->group(function () {
         }
     });
 
+    Route::resource('help', HelpController::class);
+
     Route::get('/edit_profile', [UserController::class, 'edit_profile']);
     Route::post('/edit_profile/{user}', [UserController::class, 'save_profile'])->name('save_profile');
 
@@ -59,6 +63,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('example', AdminExampleController::class);
         Route::resource('quiz', AdminQuizController::class);
         Route::resource('other', AdminOtherController::class);
+        Route::resource('student', StudentController::class);
         Route::get('quiz/answer/{quiz_id}', [AdminQuizController::class, 'showAnswer'])->name('quiz.answer');
         Route::post('point/{quiz_answer}', [AdminQuizController::class, 'set_point'])->name('point');
     });

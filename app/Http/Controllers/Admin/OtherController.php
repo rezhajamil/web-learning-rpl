@@ -92,7 +92,7 @@ class OtherController extends Controller
     {
         $other = Other::with(['subject'])->find($other->id);
 
-        return view('admin.lesson.edit', [
+        return view('admin.other.edit', [
             'title' => 'Edit Materi',
             'other' => $other,
         ]);

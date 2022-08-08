@@ -22,7 +22,7 @@
                             </h4>
                             <p class="text-sm text-gray-600">{{ $answer->user->email }}</p>
                         </div>
-                        <div class="flex gap-x-2">
+                        <div class="flex flex-col md:flex-row gap-x-2">
                             @if ($answer->updated_at<$answer->quiz->deadline)
                                 <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full h-fit dark:bg-green-700 dark:text-green-100">
                                     Tepat Waktu
@@ -32,13 +32,13 @@
                                     Terlambat
                                 </span>
                                 @endif
-                                <span class="font-semibold text-slate-800">{{ $answer->updated_at->format('d/m/Y H:i') }}</span>
+                                <span class="text-sm font-semibold md:text-base text-slate-800">{{ $answer->updated_at->format('d/m/Y H:i') }}</span>
                         </div>
                     </div>
                     <div class="mb-6 text-gray-600 dark:text-gray-400">
                         {!!$answer->desc !!}
                     </div>
-                    <div class="flex items-end justify-between">
+                    <div class="flex flex-col items-start justify-between gap-y-3 md:items-end md:flex-row">
                         <a href="{{ asset('storage/'.$answer->file) }}" class="flex flex-col w-1/2 px-3 py-2 mt-auto transition-all border rounded-md md:w-1/6 group hover:bg-indigo-600 border-slate-600">
                             <span class="text-base font-bold truncate transition-all text-slate-600 group-hover:text-white">{{ $answer->file_name }}</span>
                             <span class="block mb-2 text-sm transition-all md:mb-4 font-base text-slate-600 group-hover:text-white">{{ $answer->file_extension }}</span>

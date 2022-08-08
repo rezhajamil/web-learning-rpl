@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Lesson;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LessonController extends Controller
 {
@@ -45,10 +46,22 @@ class LessonController extends Controller
         $request->validate([
             'desc' => 'required',
             'subject_id' => 'required',
+            'file' => 'required|file',
         ]);
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $name = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+
+            $url = $file->store('lesson');
+        }
 
         $lesson = Lesson::create([
             'desc' => $request->desc,
+            'file' => $url,
+            'file_name' => $name,
+            'file_extension' => $extension,
         ]);
 
         $subject = Subject::find($request->subject_id);
@@ -101,6 +114,26 @@ class LessonController extends Controller
             'desc' => 'required',
         ]);
 
+        $old_file = $lesson->file;
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $name = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+
+            $url = $file->store('lesson');
+
+            $lesson->update([
+                'file' => $url,
+                'file_name' => $name,
+                'file_extension' => $extension,
+            ]);
+
+            if ($old_file) {
+                Storage::delete($old_file);
+            }
+        }
+
         $lesson->update([
             'desc' => $request->desc,
         ]);
@@ -117,7 +150,9 @@ class LessonController extends Controller
     public function destroy(Lesson $lesson)
     {
         $lesson = Lesson::with(['subject'])->find($lesson->id);
+        $url = $lesson->file;
 
+        Storage::disk('local')->delete($url);
         $lesson->delete();
 
         return redirect()->route('admin.subject.show', $lesson->subject->id);
