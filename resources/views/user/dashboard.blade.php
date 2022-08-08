@@ -126,17 +126,17 @@
                                             @endforeach
                                             @else
                                             @if ($now>$deadline)
-                                            <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600">
+                                            <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full whitespace-nowrap dark:text-white dark:bg-orange-600">
                                                 Belum Selesai
                                             </span>
                                             @else
-                                            <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
+                                            <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full whitespace-nowrap dark:text-red-100 dark:bg-red-700">
                                                 Terlambat
                                             </span>
                                             @endif
                                             @endif
                                             @else
-                                            <span class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700">
+                                            <span class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full whitespace-nowrap dark:text-gray-100 dark:bg-gray-700">
                                                 Tidak Ada Tugas
                                             </span>
                                             @endif
