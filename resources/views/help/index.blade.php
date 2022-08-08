@@ -7,7 +7,7 @@
     <div class="flex flex-col flex-1 w-full">
         <x-navbar></x-navbar>
         <main class="h-full overflow-y-auto">
-            <div class="w-1/2 px-4 py-2 m-auto mt-6 bg-white rounded-lg shadow-xl">
+            <div class="w-full px-4 py-2 m-auto mt-6 bg-white rounded-lg shadow-xl md:w-1/2">
                 <i class="inline-block w-full my-1 text-2xl text-right text-purple-600 cursor-pointer bi bi-x-lg" id="close"></i>
                 <i class="inline-block w-full my-3 text-5xl text-center text-purple-600 bi bi-question-circle"></i>
                 <div class="flex flex-col my-4">
