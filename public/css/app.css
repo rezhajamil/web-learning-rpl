@@ -1975,6 +1975,10 @@ select {
     display: block;
   }
 
+  .md\:flex {
+    display: flex;
+  }
+
   .md\:hidden {
     display: none;
   }
@@ -2001,6 +2005,10 @@ select {
 
   .md\:items-end {
     align-items: flex-end;
+  }
+
+  .md\:justify-center {
+    justify-content: center;
   }
 
   .md\:text-base {

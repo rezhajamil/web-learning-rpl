@@ -11,8 +11,8 @@
     </div>
     <button class="fixed px-4 py-2 font-bold text-purple-900 transition-all bg-white rounded-lg hover:bg-gray-100 bottom-6 right-6" x-on:click="profile=true"><i class="mr-4 text-lg bi bi-person-square"></i>Profil Pengembang</button>
 
-    <div class="fixed inset-0 z-30 flex items-center justify-center w-full h-full p-6 overflow-auto bg-black/80" x-transition x-show="profile">
-        <div class="flex flex-col w-full px-8 py-4 bg-white rounded-lg md:w-1/2">
+    <div class="fixed inset-0 items-center justify-end w-full h-full p-6 overflow-auto md:flex md:justify-center bg-black/80" x-transition x-show="profile">
+        <div class="relative flex flex-col w-full px-8 py-4 bg-white rounded-lg md:w-1/2">
             <button class="mb-4 ml-auto text-3xl font-bold transition-all hover:text-purple-800" x-on:click="profile=false">X</button>
             <div class="mx-auto overflow-hidden rounded-md h-52 w-36">
                 <img src="{{ asset('images/kartini.jpg') }}" alt="profil" class="w-full h-full">
