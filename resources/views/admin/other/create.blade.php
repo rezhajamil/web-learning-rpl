@@ -3,7 +3,7 @@
 <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
     @include('components.user.sidebar')
     @include('components.user.sidebar_mobile')
-    
+
     <div class="flex flex-col flex-1 w-full">
         <x-navbar></x-navbar>
         <main class="h-full overflow-y-auto">
@@ -23,9 +23,9 @@
                     <input id="desc" type="hidden" name="desc">
                     <trix-editor input="desc">{!! old('desc') !!}</trix-editor>
                     @error('desc')
-                        <span class="text-xs text-red-600 dark:text-red-400">
-                            {{ $message }}
-                        </span>
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
                     @enderror
                     <label class="block mt-3 mb-2 text-sm" for="file">
                         <span class="block mb-3 font-semibold text-gray-700 dark:text-gray-400">
@@ -35,28 +35,29 @@
                     </label>
                     <span class="text-neutral-900 file-preview"></span>
                     @error('file')
-                        <span class="text-xs text-red-600 dark:text-red-400">
-                            {{ $message }}
-                        </span>
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
                     @enderror
-                    <input type="file" class="absolute block opacity-0 -z-10" name="file" id="file" required onchange="previewFile()">
+                    <input type="file" class="absolute block opacity-0 -z-10" name="file" id="file" onchange="previewFile()">
                     <button type="submit" class="block px-3 py-2 my-3 font-semibold text-white transition bg-indigo-600 rounded hover:bg-indigo-800">Kirim</button>
                 </form>
             </div>
         </main>
     </div>
 </div>
-    
+
 @endsection
 
 @section('scripts')
-    <script>
-        function previewFile() {
-            const input = document.querySelector('input[name=file]');
-            const preview = document.querySelector('.file-preview');
-            const file = input.files[0];
+<script>
+    function previewFile() {
+        const input = document.querySelector('input[name=file]');
+        const preview = document.querySelector('.file-preview');
+        const file = input.files[0];
 
-            preview.innerHTML = `File Chosen: ${file.name}`;
-        }
-    </script>
+        preview.innerHTML = `File Chosen: ${file.name}`;
+    }
+
+</script>
 @endsection

@@ -32,7 +32,7 @@
                     </div>
                 </div>
 
-                <a href="{{route('admin.subject.create')}}" class="px-3 py-2 font-semibold text-center text-white transition bg-purple-600 rounded sm:w-1/6 hover:bg-purple-800"></i>+ Tambah Materi</a>
+                <a href="{{route('admin.subject.create')}}" class="px-3 py-2 font-semibold text-center text-white transition bg-purple-600 rounded sm:w-1/6 hover:bg-purple-800"></i>+ Tambah Pertemuan</a>
 
                 <!-- New Table -->
                 <div class="w-full overflow-hidden rounded-lg shadow-xs">

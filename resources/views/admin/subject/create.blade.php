@@ -16,10 +16,10 @@
                     @csrf
                     <label class="block text-sm">
                         <span class="block mb-3 font-semibold text-gray-700 dark:text-gray-400">
-                            Nama Materi
+                            Nama Pertemuan
                         </span>
                     </label>
-                    <input type="text" class="w-1/2 form-input" name="name" id="name" placeholder="Nama Materi" required value="{{ old('name') }}">
+                    <input type="text" class="w-1/2 form-input" name="name" id="name" placeholder="Nama Pertemuan" required value="{{ old('name') }}">
                     @error('name')
                     <span class="text-xs text-red-600 dark:text-red-400">
                         {{ $message }}

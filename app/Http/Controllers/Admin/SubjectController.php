@@ -29,7 +29,7 @@ class SubjectController extends Controller
     public function create()
     {
         return view('admin.subject.create', [
-            'title' => 'Tambah Materi',
+            'title' => 'Tambah Pertemuan',
         ]);
     }
 

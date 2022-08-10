@@ -54,6 +54,10 @@ class OtherController extends Controller
             $extension = $file->getClientOriginalExtension();
 
             $url = $file->store('other');
+        } else {
+            $url = null;
+            $name = null;
+            $extension = null;
         }
 
         $other = Other::create([

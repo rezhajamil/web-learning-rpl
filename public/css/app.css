@@ -683,9 +683,6 @@ select {
 .z-20 {
   z-index: 20;
 }
-.z-30 {
-  z-index: 30;
-}
 .col-span-full {
   grid-column: 1 / -1;
 }
@@ -715,13 +712,13 @@ select {
   margin-top: auto;
   margin-bottom: auto;
 }
-.my-1 {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-}
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
 }
 .ml-3 {
   margin-left: 0.75rem;

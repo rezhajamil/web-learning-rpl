@@ -93,11 +93,13 @@
                     <div class="mb-6 text-gray-600 dark:text-gray-400">
                         {!!$subject->other->desc !!}
                         </p>
+                        @if ($subject->other->file)
                         <a href="{{ asset('storage/'.$subject->other->file) }}" class="flex flex-col w-1/2 px-3 py-2 mt-auto transition-all border rounded-md md:w-1/6 group hover:bg-indigo-600 border-slate-600">
                             <span class="text-base font-bold truncate transition-all text-slate-600 group-hover:text-white">{{ $subject->other->file_name }}</span>
                             <span class="block mb-2 text-sm transition-all md:mb-4 font-base text-slate-600 group-hover:text-white">{{ $subject->other->file_extension }}</span>
                             <span class="text-sm font-semibold transition-all text-slate-600 group-hover:text-white">Open<i class="ml-1 font-semibold bi bi-arrow-bar-right"></i></span>
                         </a>
+                        @endif
                     </div>
                     @endif
                 </div>
