@@ -53,7 +53,7 @@ class OtherController extends Controller
             $name = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
 
-            $url = $file->store('other');
+            $url = $file->storeAs('other', $name);
         } else {
             $url = null;
             $name = null;
@@ -118,7 +118,7 @@ class OtherController extends Controller
             $name = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
 
-            $url = $file->store('other');
+            $url = $file->storeAs('other', $name);
 
             $other->update([
                 'file' => $url,

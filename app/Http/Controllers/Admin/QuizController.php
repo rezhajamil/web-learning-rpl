@@ -71,7 +71,7 @@ class QuizController extends Controller
             $name = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
 
-            $url = $file->store('quiz');
+            $url = $file->storeAs('quiz', $name);
         }
 
         $quiz = Quiz::create([
@@ -134,7 +134,7 @@ class QuizController extends Controller
             $name = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
 
-            $url = $file->store('quiz');
+            $url = $file->storeAs('quiz', $name);
 
             $quiz->update([
                 'file' => $url,

@@ -54,7 +54,7 @@ class ExampleController extends Controller
             $name = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
 
-            $url = $file->store('example');
+            $url = $file->storeAs('example', $name);
         }
 
         $example = Example::create([
@@ -115,7 +115,7 @@ class ExampleController extends Controller
             $name = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
 
-            $url = $file->store('example');
+            $url = $file->storeAs('example', $name);
 
             $example->update([
                 'file' => $url,

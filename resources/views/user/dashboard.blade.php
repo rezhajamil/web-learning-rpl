@@ -161,7 +161,7 @@
             </div>
         </main>
 
-        <button class="fixed px-3 py-1 transition-all bg-white rounded-full shadow-lg hover:animate-bounce right-4 bottom-4" id="btn-help">
+        {{-- <button class="fixed px-3 py-1 transition-all bg-white rounded-full shadow-lg hover:animate-bounce right-4 bottom-4" id="btn-help">
             <i class="text-3xl text-purple-600 bi bi-question-circle"></i>
         </button>
 
@@ -190,7 +190,7 @@
 
                 </div>
             </div>
-        </div>
+        </div> --}}
 
     </div>
 

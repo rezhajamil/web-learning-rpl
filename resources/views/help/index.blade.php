@@ -30,6 +30,8 @@
                         Instagram: kartinijuitaa</span>
 
                 </div>
+                <a href="https://docs.google.com/file/d/1ce2qvZ97xHC14I904-IIPrUzrffz3w4x/edit?usp=docslist_api&filetype=msword" target="_blank" class="flex items-center italic text-purple-600 underline">Link Pedoman<i class="text-lg bi bi-cursor-fill"></i></a>
+
             </div>
 
         </main>

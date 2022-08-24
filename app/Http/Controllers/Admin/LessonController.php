@@ -54,7 +54,7 @@ class LessonController extends Controller
             $name = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
 
-            $url = $file->store('lesson');
+            $url = $file->storeAs('lesson', $name);
         }
 
         $lesson = Lesson::create([
@@ -121,7 +121,7 @@ class LessonController extends Controller
             $name = $file->getClientOriginalName();
             $extension = $file->getClientOriginalExtension();
 
-            $url = $file->store('lesson');
+            $url = $file->storeAs('lesson', $name);
 
             $lesson->update([
                 'file' => $url,
