@@ -19,7 +19,7 @@
                     @elseif($answer->finish)
                     <div class="flex flex-col items-center justify-center w-full">
                         <span class="text-3xl font-bold">Skor Anda</span>
-                        <div class="p-3 px-5 mt-12 text-3xl text-white bg-purple-600 rounded-full aspect-square">{{ $answer->hasil }}</div>
+                        <div class="p-3 px-5 mt-12 text-3xl text-white bg-purple-600 rounded-full aspect-square">{{ $answer->hasil*10 }}</div>
                     </div>
                     @elseif(!$answer->finish)
                     <form action="{{ route('user.quiz_session.store') }}" method="post" id="form-quiz">
