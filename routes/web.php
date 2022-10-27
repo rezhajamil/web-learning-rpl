@@ -6,11 +6,13 @@ use App\Http\Controllers\Admin\LessonController as AdminLessonController;
 use App\Http\Controllers\Admin\ExampleController as AdminExampleController;
 use App\Http\Controllers\Admin\QuizController as AdminQuizController;
 use App\Http\Controllers\Admin\OtherController as AdminOtherController;
+use App\Http\Controllers\Admin\QuizSessionController as AdminQuizSessionController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\User\DashboardController as UserDashboardController;
 use App\Http\Controllers\User\SubjectController as UserSubjectController;
 use App\Http\Controllers\User\QuizAnswerController as UserQuizAnswerController;
+use App\Http\Controllers\QuizSessionController as UserQuizSessionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -54,6 +56,7 @@ Route::middleware('auth')->group(function () {
         Route::get('dashboard', UserDashboardController::class)->name('dashboard');
         Route::resource('subject', UserSubjectController::class);
         Route::resource('quiz_answer', UserQuizAnswerController::class);
+        Route::resource('quiz_session', UserQuizSessionController::class);
     });
 
     Route::prefix('admin')->name('admin.')->middleware('ensureUserRole:admin')->group(function () {
@@ -62,6 +65,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('lesson', AdminLessonController::class);
         Route::resource('example', AdminExampleController::class);
         Route::resource('quiz', AdminQuizController::class);
+        Route::resource('quiz_session', AdminQuizSessionController::class);
         Route::resource('other', AdminOtherController::class);
         Route::resource('student', StudentController::class);
         Route::get('quiz/answer/{quiz_id}', [AdminQuizController::class, 'showAnswer'])->name('quiz.answer');
